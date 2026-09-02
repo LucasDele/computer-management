@@ -45,3 +45,10 @@
 .bg-transparent {
   background-color: transparent;
 }
+
+.bg-image {
+  background-image: url("https://images.pexels.com/photos/14127564/pexels-photo-14127564.jpeg?cs=srgb&dl=pexels-pramodtiwari-14127564.jpg&fm=jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
