@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How It Works - Computer Laboratory Inventory System</title>
+    <link rel="stylesheet" href="../assets/css/pages/landing.css" />
+    <style>
+      a {
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      a:hover {
+        opacity: 0.85;
+      }
+      .nav-links li {
+        list-style: none;
+      }
+      .btn {
+        cursor: pointer;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+      .step-card {
+        transition: all 0.3s ease;
+      }
+      .step-card:hover {
+        transform: translateY(-5px);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header/Navbar -->
+    <header class="bg-secondary shadow-lg position-sticky top-0 z-100">
+      <div class="container d-flex flex-row justify-between items-center" style="height: 100px">
+        <div class="d-flex flex-row items-center gap-3 text-xl font-bold text-white">
+          <img src="../assets/images/logo/britech-logo.png" alt="Britech logo" width="72" height="72" />
+          <span>Britech College</span>
+        </div>
+        <ul class="nav-links d-flex flex-row gap-8">
+          <li><a href="../index.html" class="text-white font-medium">Home</a></li>
+          <li><a href="about.html" class="text-white font-medium">About</a></li>
+          <li><a href="features.html" class="text-white font-medium">Features</a></li>
+          <li><a href="how-it-works.html" class="text-white font-medium">How It Works</a></li>
+        </ul>
+        <a href="login.html" class="btn bg-primary text-secondary px-6 py-2 rounded-md font-bold text-sm">LOGIN</a>
+      </div>
+    </header>
+
+    <!-- How It Works Section -->
+    <section class="bg-white py-32">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="text-center mb-20">
+          <h2 class="text-5xl font-bold text-secondary">"Simple. Organized. Fast."</h2>
+        </div>
+
+        <!-- Steps Container -->
+        <div class="d-flex flex-row justify-between items-stretch gap-8" style="flex-wrap: wrap">
+          <!-- Step 1 -->
+          <div
+            class="step-card bg-accent p-10 rounded-lg"
+            style="flex: 1; min-width: 200px; text-align: center; border-top: 5px solid #f4b400"
+          >
+            <div class="text-5xl font-bold text-primary mb-4" style="color: #f4b400">(01)</div>
+            <h3 class="text-2xl font-bold text-secondary mb-6">LOGIN</h3>
+            <p class="text-base text-warning">Authorized users access the system securely.</p>
+          </div>
+
+          <!-- Arrow -->
+          <div class="d-flex items-center" style="font-size: 2rem; color: #173b6c; padding: 0 20px">
+            <span style="font-weight: bold">→</span>
+          </div>
+
+          <!-- Step 2 -->
+          <div
+            class="step-card bg-accent p-10 rounded-lg"
+            style="flex: 1; min-width: 200px; text-align: center; border-top: 5px solid #f4b400"
+          >
+            <div class="text-5xl font-bold text-primary mb-4" style="color: #f4b400">(02)</div>
+            <h3 class="text-2xl font-bold text-secondary mb-6">MANAGE</h3>
+            <p class="text-base text-warning">Add, search, edit, and maintain records easily.</p>
+          </div>
+
+          <!-- Arrow -->
+          <div class="d-flex items-center" style="font-size: 2rem; color: #173b6c; padding: 0 20px">
+            <span style="font-weight: bold">→</span>
+          </div>
+
+          <!-- Step 3 -->
+          <div
+            class="step-card bg-accent p-10 rounded-lg"
+            style="flex: 1; min-width: 200px; text-align: center; border-top: 5px solid #f4b400"
+          >
+            <div class="text-5xl font-bold text-primary mb-4" style="color: #f4b400">(03)</div>
+            <h3 class="text-2xl font-bold text-secondary mb-6">MONITOR</h3>
+            <p class="text-base text-warning">Monitor status and generate insightful reports.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-secondary text-center py-32">
+      <div class="container">
+        <h2 class="text-5xl font-bold text-white mb-6">"Manage your computer laboratory more efficiently."</h2>
+        <p class="text-xl text-white mb-10" style="max-width: 600px; margin-left: auto; margin-right: auto">
+          Keep inventory and maintenance information organized and accessible through one web-based monitoring system.
+        </p>
+        <a
+          href="#"
+          class="btn bg-primary text-secondary px-10 py-3 rounded-md font-bold text-lg"
+          style="display: inline-block"
+          >LOGIN</a
+        >
+      </div>
+    </section>
+  </body>
+</html>
