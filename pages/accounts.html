@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Account</title>
+    <title>Accounts</title>
     <link rel="stylesheet" href="../assets/css/style.css" />
     <link rel="stylesheet" href="../assets/css/pages/accounts.css" />
   </head>
@@ -19,20 +19,148 @@
 
       <!-- Navbar -->
       <nav class="px-5 d-flex flex-column gap-2">
-        <a class="btn-secondary btn-nav" href="./dashboard.html">DASHBOARD</a>
-        <a class="btn-secondary btn-nav btn-secondary__is-active" href="computer-inventory.html">COMPUTER</a>
+        <a class="btn-secondary btn-nav" href="dashboard.html">DASHBOARD</a>
+        <a class="btn-secondary btn-nav" href="computers/computer-inventory.html">COMPUTER</a>
         <div class="ml-10 d-flex flex-column gap-2">
-          <a class="btn-secondary btn-nav btn-secondary__is-active" href="computer-inventory.html">Computers</a>
-          <a class="btn-secondary btn-nav" href="computer-specs.html">Specs</a>
+          <a class="btn-secondary btn-nav" href="computers/computer-inventory.html">Computers</a>
+          <a class="btn-secondary btn-nav" href="computers/computer-specs.html">Specs</a>
         </div>
-        <a class="btn-secondary btn-nav" href="../equipment.html">EQUIPMENT</a>
-        <a class="btn-secondary btn-nav" href="../maintenance.html">MAINTENANCE</a>
-        <a class="btn-secondary btn-nav" href="../issues.html">ISSUES</a>
-        <a class="btn-secondary btn-nav" href="../reports.html">REPORTS</a>
-        <a class="btn-secondary btn-nav" href="../accounts.html">ACCOUNTS</a>
+        <a class="btn-secondary btn-nav" href="equipment.html">EQUIPMENT</a>
+        <a class="btn-secondary btn-nav" href="maintenance.html">MAINTENANCE</a>
+        <a class="btn-secondary btn-nav" href="issues.html">ISSUES</a>
+        <a class="btn-secondary btn-nav" href="reports.html">REPORTS</a>
+        <a class="btn-secondary btn-nav btn-secondary__is-active" href="accounts.html" aria-current="page">ACCOUNTS</a>
       </nav>
     </aside>
 
     <!-- Right Container -->
+    <div class="w-100 overflow-hidden">
+      <header class="header__h-10 accounts__header d-flex flex-row items-center justify-between">
+        <h2 class="accounts__page-title">Accounts</h2>
+
+        <div class="accounts__user d-flex flex-row items-center gap-3">
+          <span class="accounts__avatar d-flex items-center justify-center">AD</span>
+          <span class="text-14 font-semibold text-warning">Administrator</span>
+          <i class="fa-solid fa-chevron-down text-12 text-gray" aria-hidden="true"></i>
+        </div>
+      </header>
+
+      <main class="main-container__h-90 accounts__main d-flex flex-column gap-6">
+        <!-- Page actions -->
+        <section class="d-flex flex-row flex-wrap items-center justify-end gap-3" aria-label="Account actions">
+          <button class="btn-secondary" type="button" id="deleteAccountBtn" disabled>Delete</button>
+          <a class="btn-primary" href="#accountForm" id="addAccountBtn">+ Account</a>
+        </section>
+
+        <!-- Account totals: placeholders until connected to account data. -->
+        <section class="accounts__stats" aria-label="Account overview">
+          <article class="accounts__card accounts__stat accounts__stat--total d-flex flex-column gap-3">
+            <span class="accounts__stat-value" id="totalAccounts">0</span>
+            <span class="accounts__stat-label">Total Accounts</span>
+          </article>
+
+          <article class="accounts__card accounts__stat accounts__stat--admin d-flex flex-column gap-3">
+            <span class="accounts__stat-value" id="adminAccounts">0</span>
+            <span class="accounts__stat-label">Admin Accounts</span>
+          </article>
+
+          <article class="accounts__card accounts__stat accounts__stat--teacher d-flex flex-column gap-3">
+            <span class="accounts__stat-value" id="teacherAccounts">0</span>
+            <span class="accounts__stat-label">Teacher Accounts</span>
+          </article>
+
+          <article class="accounts__card accounts__stat accounts__stat--active d-flex flex-column gap-3">
+            <span class="accounts__stat-value" id="activeAccounts">0</span>
+            <span class="accounts__stat-label">Active Accounts</span>
+          </article>
+        </section>
+
+        <!-- Account table and form, following the uploaded wireframe. -->
+        <section class="accounts__content items-start" aria-label="Account management">
+          <section class="accounts__card d-flex flex-column gap-5" aria-labelledby="accountTableTitle">
+            <h4 class="accounts__card-title" id="accountTableTitle">Accounts Table</h4>
+
+            <div class="accounts__table-wrapper">
+              <table class="table accounts__table" aria-labelledby="accountTableTitle">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="accountTableBody">
+                  <tr>
+                    <td colspan="5">
+                      <p class="accounts__empty">No accounts to display.</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- UI form only. Connect Save and Delete to the account service later. -->
+          <form id="accountForm" class="accounts__card d-flex flex-column gap-5" aria-labelledby="accountFormTitle">
+            <h4 class="accounts__card-title" id="accountFormTitle">Account Form</h4>
+
+            <div class="d-flex flex-column gap-2">
+              <label class="label" for="fullName">Full Name</label>
+              <input
+                class="input accounts__field"
+                type="text"
+                id="fullName"
+                name="full_name"
+                autocomplete="name"
+                placeholder="Enter full name"
+                required
+              />
+            </div>
+
+            <div class="d-flex flex-column gap-2">
+              <label class="label" for="username">Username</label>
+              <input
+                class="input accounts__field"
+                type="text"
+                id="username"
+                name="username"
+                autocomplete="username"
+                maxlength="12"
+                placeholder="Enter username"
+                required
+              />
+            </div>
+
+            <div class="d-flex flex-column gap-2">
+              <label class="label" for="password">Password</label>
+              <input
+                class="input accounts__field"
+                type="password"
+                id="password"
+                name="password"
+                autocomplete="new-password"
+                placeholder="Enter password"
+                required
+              />
+            </div>
+
+            <div class="d-flex flex-column gap-2">
+              <label class="label" for="role">Role</label>
+              <select class="select accounts__field" id="role" name="role" required>
+                <option value="" disabled selected>Select role</option>
+                <option value="admin">Admin</option>
+                <option value="teacher">Teacher</option>
+              </select>
+            </div>
+
+            <button class="btn-primary w-100" type="button" id="saveAccountBtn">Save</button>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="../assets/js/main.js"></script>
   </body>
 </html>

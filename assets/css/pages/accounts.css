@@ -9,3 +9,176 @@
 .btn-nav {
   justify-content: start;
 }
+
+/* ============================================================
+   ACCOUNTS
+   Header, cards and overview based on dashboard.css.
+   Table and form fields based on computer-inventory.css.
+   Shared components and theme tokens remain in the existing CSS folder.
+   ============================================================ */
+
+/* ----- Header ------------------------------------------------ */
+
+.accounts__header {
+  padding: 0 var(--space-24);
+  background-color: var(--color-white);
+  border-bottom: var(--border-thin) solid var(--color-light-gray);
+}
+
+.accounts__page-title {
+  font-size: var(--font-size-32);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-none);
+  color: var(--color-secondary);
+}
+
+.accounts__user {
+  padding: var(--space-8) var(--space-12);
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent);
+}
+
+.accounts__avatar {
+  width: var(--space-32);
+  height: var(--space-32);
+  border-radius: var(--radius-full);
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-bold);
+}
+
+/* ----- Main and card shell ----------------------------------- */
+.accounts__main {
+  padding: var(--space-24);
+  background-color: var(--color-accent);
+}
+
+.accounts__card {
+  padding: var(--space-20);
+  background-color: var(--color-white);
+  border: var(--border-thin) solid var(--color-light-gray);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.accounts__card-title {
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+/* ----- Form fields ------------------------------------------- */
+.accounts__field {
+  color: var(--color-warning);
+  background-color: var(--color-white);
+}
+
+/* ----- Accounts table ---------------------------------------- */
+.accounts__table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: var(--border-thin) solid var(--color-gray-30);
+  border-radius: var(--radius-md);
+}
+
+.accounts__table {
+  color: var(--color-warning);
+}
+
+.accounts__table thead {
+  background-color: var(--color-accent);
+}
+
+.accounts__table th {
+  color: var(--color-secondary);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: var(--font-size-12);
+}
+
+.accounts__table tbody tr:hover {
+  background-color: var(--color-accent);
+}
+
+.accounts__empty {
+  padding: var(--space-32);
+  font-size: var(--font-size-14);
+  text-align: center;
+  color: var(--color-gray);
+}
+
+/* ----- Account overview -------------------------------------- */
+.accounts__stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-16);
+}
+
+.accounts__stat {
+  border-left: var(--border-thick) solid var(--color-secondary);
+  transition:
+    box-shadow var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.accounts__stat:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.accounts__stat--total,
+.accounts__stat--admin {
+  border-left-color: var(--color-secondary);
+}
+
+.accounts__stat--active {
+  border-left-color: var(--status-operational);
+}
+
+.accounts__stat--teacher {
+  border-left-color: var(--status-maintenance);
+}
+
+.accounts__stat-value {
+  font-size: var(--font-size-40);
+  font-weight: var(--font-weight-extrabold);
+  line-height: var(--line-height-none);
+  color: var(--color-warning);
+}
+
+.accounts__stat-label {
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-gray);
+}
+
+/* ----- Table and form layout ---------------------------------- */
+.accounts__content {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: var(--space-16);
+}
+
+.accounts__content > * {
+  min-width: 0;
+}
+
+/* ----- Responsive --------------------------------------------- */
+@media (max-width: 1200px) {
+  .accounts__stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .accounts__content {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .accounts__stats {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
