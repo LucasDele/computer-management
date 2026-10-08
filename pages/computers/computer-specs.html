@@ -3,80 +3,144 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Computer Specs</title>
+    <title>Computer Details</title>
     <link rel="stylesheet" href="../../assets/css/style.css" />
     <link rel="stylesheet" href="../../assets/css/pages/computer-specs.css" />
   </head>
+
   <body class="w-100 d-flex flex-row h-screen">
+    <!-- SIDEBAR -->
     <aside class="w-320 d-flex flex-column border-r border-light-gray gap-5">
-      <!-- Section logo -->
+      <!-- Logo -->
       <section class="px-5 pt-5 w-100 d-flex flex-column items-center">
         <div class="w-96 h-96">
           <img class="w-100 h-100" src="../../assets/images/logo/britech-logo.png" alt="Britech logo" />
         </div>
+
         <h1>BRITECH LAB</h1>
       </section>
 
-      <!-- Navbar -->
+      <!-- Navigation -->
       <nav class="px-5 d-flex flex-column gap-2">
-        <a class="btn-secondary btn-nav" href="../dashboard.html">DASHBOARD</a>
-        <a class="btn-secondary btn-nav" href="computer-inventory.html">COMPUTER</a>
+        <a class="btn-secondary btn-nav" href="../dashboard.html"> DASHBOARD </a>
+        <a class="btn-secondary btn-nav btn-secondary__is-active" href="computer-inventory.html"> COMPUTER </a>
         <div class="ml-10 d-flex flex-column gap-2">
-          <a class="btn-secondary btn-nav" href="computer-inventory.html">Computers</a>
-          <a class="btn-secondary btn-nav" href="computer-specs.html">Specs</a>
+          <a class="btn-secondary btn-nav" href="computer-inventory.html"> Computers </a>
+          <a class="btn-secondary btn-nav" href="computer-specs.html"> Specs </a>
         </div>
-        <a class="btn-secondary btn-nav" href="../equipment.html">EQUIPMENT</a>
-        <a class="btn-secondary btn-nav" href="../maintenance.html">MAINTENANCE</a>
-        <a class="btn-secondary btn-nav" href="../issues.html">ISSUES</a>
-        <a class="btn-secondary btn-nav" href="../reports.html">REPORTS</a>
-        <a class="btn-secondary btn-nav" href="../accounts.html">ACCOUNTS</a>
+        <a class="btn-secondary btn-nav" href="../equipment.html"> EQUIPMENT </a>
+        <a class="btn-secondary btn-nav" href="../maintenance.html"> MAINTENANCE </a>
+        <a class="btn-secondary btn-nav" href="../issues.html"> ISSUES </a>
+        <a class="btn-secondary btn-nav" href="../reports.html"> REPORTS </a>
+        <a class="btn-secondary btn-nav" href="../accounts.html"> ACCOUNTS </a>
       </nav>
     </aside>
 
-    <!-- Right Corner -->
+    <!-- MAIN CONTENT -->
     <div class="w-100 overflow-hidden">
+      <!-- HEADER -->
       <header class="header__h-10 specs__header d-flex flex-row items-center justify-between">
-        <h2 class="specs__page-title">Computer Specs</h2>
+        <h2 class="specs__page-title">Computer Details</h2>
 
         <div class="specs__user d-flex flex-row items-center gap-3">
-          <span class="specs__avatar d-flex items-center justify-center">AD</span>
-          <span class="text-14 font-semibold text-warning">Administrator</span>
+          <span class="specs__avatar d-flex items-center justify-center"> AD </span>
+          <span class="text-14 font-semibold text-warning"> Administrator </span>
           <i class="fa-solid fa-chevron-down text-12 text-gray"></i>
         </div>
       </header>
 
+      <!-- PAGE CONTENT -->
       <main class="main-container__h-90 specs__main d-flex flex-column gap-6">
-        <!-- Page Intro -->
-        <p class="specs__subtitle">Add specs carefully</p>
-
-        <!-- Overview -->
-        <section class="d-flex flex-column gap-3">
-          <h4 class="specs__section-title">Asset ID: Comp-001</h4>
-
-          <div>
-            <a class="btn-primary" href="# Overview">
-              Overview
-              <i class="fa-solid fa-plus"></i>
+        <!-- COMPUTER INFORMATION -->
+        <section class="specs__intro d-flex flex-row items-center justify-between gap-4">
+          <div class="d-flex flex-column gap-2">
+            <!-- Back button -->
+            <a class="specs__back" href="computer-inventory.html">
+              <i class="fa-solid fa-arrow-left"></i>
+              Back to Inventory
             </a>
 
-            <a class="btn-primary" href="#Components">
-              <i class="fa-solid fa-file-lines"></i>
-              Components
-            </a>
+            <!-- Computer name -->
+            <div class="d-flex flex-row items-center gap-3">
+              <h1 class="specs__title">PC-01</h1>
+              <span class="specs__status"> Operational </span>
+            </div>
+            <p class="specs__subtitle">Asset ID: COMP-001</p>
+          </div>
+        </section>
 
-            <a class="btn-primary" href="# Maintenance">
-              <i class="fa-solid fa-calendar-plus"></i>
-              Maintenance
-            </a>
+        <!-- TABS -->
+        <nav class="specs__tabs d-flex flex-row items-center gap-10" aria-label="Computer details sections">
+          <a class="btn-secondary" href="#overview">
+            <i class="fa-solid fa-plus"></i>
+            Overview
+          </a>
+          <a class="btn-secondary" href="#components"> Components </a>
+          <a class="btn-secondary" href="#maintenance"> Maintenance </a>
+          <a class="btn-secondary" href="#issues"> Issues </a>
+          <a class="btn-secondary" href="#history"> History </a>
+        </nav>
 
-            <a class="btn-primary" href="#Issues">
-              <i class="fa-solid fa-bug"></i>
-              Issues
-            </a>
-            <a class="btn-primary" href="# History">
-              <i class="fa-solid fa-circle-check"></i>
-              History
-            </a>
+        <!-- OVERVIEW -->
+        <section id="overview" class="d-flex flex-column gap-3">
+          <h4 class="specs__section-title">Overview</h4>
+
+          <div class="specs__overview-grid">
+            <!-- BASIC INFORMATION -->
+            <article class="specs__card d-flex flex-column gap-3">
+              <h3 class="specs__card-title">Basic Information</h3>
+
+              <div class="specs__details-grid">
+                <div class="specs__detail">
+                  <span class="specs__label"> Computer </span>
+                  <span class="specs__value"> PC-01 </span>
+                </div>
+
+                <div class="specs__detail">
+                  <span class="specs__label"> Laboratory </span>
+                  <span class="specs__value"> Lab 1 </span>
+                </div>
+
+                <div class="specs__detail">
+                  <span class="specs__label"> Workstation </span>
+                  <span class="specs__value"> WS-01 </span>
+                </div>
+
+                <div class="specs__detail">
+                  <span class="specs__label"> Date Added </span>
+                  <span class="specs__value"> Aug 2026 </span>
+                </div>
+              </div>
+            </article>
+
+            <!-- CURRENT CONDITION -->
+            <article class="specs__card d-flex flex-column gap-3">
+              <h3 class="specs__card-title">Current Condition</h3>
+
+              <div class="specs__details-grid">
+                <div class="specs__detail">
+                  <span class="specs__label"> Status </span>
+
+                  <span class="specs__value"> Operational </span>
+                </div>
+
+                <div class="specs__detail">
+                  <span class="specs__label"> Condition </span>
+
+                  <span class="specs__value"> Good </span>
+                </div>
+
+                <div class="specs__detail">
+                  <span class="specs__label"> Last Check </span>
+                  <span class="specs__value"> Aug 20, 2026 </span>
+                </div>
+
+                <div class="specs__detail">
+                  <span class="specs__label"> Maintenance </span>
+                  <span class="specs__value"> Sept 26, 2026 </span>
+                </div>
+              </div>
+            </article>
           </div>
         </section>
       </main>

@@ -10,13 +10,6 @@
   justify-content: start;
 }
 
-/* ============================================================
-   ACCOUNTS
-   Header, cards and overview based on dashboard.css.
-   Table and form fields based on computer-inventory.css.
-   Shared components and theme tokens remain in the existing CSS folder.
-   ============================================================ */
-
 /* ----- Header ------------------------------------------------ */
 
 .accounts__header {
