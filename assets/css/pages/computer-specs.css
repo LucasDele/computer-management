@@ -10,6 +10,8 @@
   justify-content: start;
 }
 
+/* ----- Header ------------------------------------------------ */
+
 .specs__header {
   padding: 0 var(--space-24);
   background-color: var(--color-white);
@@ -40,17 +42,97 @@
 }
 
 /* ----- Main -------------------------------------------------- */
+
 .specs__main {
   padding: var(--space-24);
   background-color: var(--color-accent);
 }
 
-.specs__title {
+/* ----- Computer Header -------------------------------------- */
+
+.specs__computer-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.specs__computer-title {
   font-size: var(--font-size-32);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
   color: var(--color-warning);
 }
+
+.specs__computer-id {
+  font-size: var(--font-size-14);
+  color: var(--color-gray);
+}
+
+/* ----- Status ----------------------------------------------- */
+
+.specs__status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-8) var(--space-12);
+  border-radius: var(--radius-full);
+  background-color: var(--color-success-50);
+  color: var(--color-success);
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* ----- Back Button ------------------------------------------ */
+
+.specs__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: fit-content;
+  color: var(--color-gray);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-semibold);
+}
+
+.specs__back:hover {
+  color: var(--color-secondary);
+}
+
+/* ----- Tabs ------------------------------------------------- */
+
+.specs__tabs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-2);
+  padding-bottom: var(--space-8);
+  border-bottom: var(--border-thin) solid var(--color-light-gray);
+}
+
+.specs__tab {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-8) var(--space-12);
+  border-radius: var(--radius-md);
+  color: var(--color-gray);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-semibold);
+}
+
+.specs__tab:hover {
+  background-color: var(--color-white);
+  color: var(--color-secondary);
+}
+
+.specs__tab--active {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+}
+
+/* ----- Section Title ---------------------------------------- */
 
 .specs__section-title {
   font-size: var(--font-size-12);
@@ -60,11 +142,7 @@
   color: var(--color-gray);
 }
 
-.specs__subtitle {
-  font-size: var(--font-size-16);
-  line-height: var(--line-height-normal);
-  color: var(--color-gray);
-}
+/* ----- Card ------------------------------------------------- */
 
 .specs__card {
   padding: var(--space-20);
@@ -77,160 +155,113 @@
 .specs__card-title {
   font-size: var(--font-size-16);
   font-weight: var(--font-weight-semibold);
-  letter-spacing: 1px;
-  text-transform: uppercase;
   color: var(--color-secondary);
 }
 
-.specs__result-count {
-  font-size: var(--font-size-14);
-  color: var(--color-gray);
+/* ----- Information ------------------------------------------ */
+
+.specs__information {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-20);
 }
 
-/* ----- Toolbar ----------------------------------------------- */
-.specs__toolbar {
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--space-12);
-}
-
-/* .input and .select default to --color-dark (a pale yellow) for text,
-   which is unreadable on their light background - same override that
-   pages/login.css applies to its own fields. */
-.specs__field {
-  color: var(--color-warning);
-  background-color: var(--color-white);
-}
-
-.specs__search {
-  position: relative;
-  flex: 1 1 320px;
-  min-width: 240px;
-}
-
-.specs__search .specs__field {
-  padding-left: var(--space-40);
-}
-
-.specs__search-icon {
-  position: absolute;
-  top: 50%;
-  left: var(--space-16);
-  transform: translateY(-50%);
-  font-size: var(--font-size-14);
-  color: var(--color-gray);
-  pointer-events: none;
-}
-
-.specs__filter {
-  flex: 0 1 180px;
-  min-width: 150px;
-}
-
-/* ----- Table ------------------------------------------------- */
-.specs__table-wrapper {
-  width: 100%;
-  overflow-x: auto;
-  border: var(--border-thin) solid var(--color-gray-30);
-  border-radius: var(--radius-md);
-}
-
-/* .table sets its text to --color-dark (pale yellow) - same fix as above */
-.specs__table {
-  color: var(--color-warning);
-}
-
-.inventory__table thead {
-  background-color: var(--color-accent);
-}
-
-.specs__table th {
-  color: var(--color-secondary);
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  font-size: var(--font-size-12);
-}
-
-.specs__table tbody tr:hover {
-  background-color: var(--color-accent);
-}
-
-/* .btn-tertiary is --color-dark (pale yellow) too - unreadable in a table cell */
-.specs__table .btn-tertiary {
-  padding: var(--space-8) var(--space-12);
-  color: var(--color-secondary);
-}
-
-.specs__asset-id {
-  font-weight: var(--font-weight-bold);
-  color: var(--color-secondary);
-  white-space: nowrap;
-}
-
-.specs__pc-name {
-  font-weight: var(--font-weight-semibold);
-}
-
-.specs__empty {
-  padding: var(--space-32);
-  font-size: var(--font-size-14);
-  text-align: center;
-  color: var(--color-gray);
-}
-
-/* ----- Pagination -------------------------------------------- */
-.specs__pagination {
+.specs__item {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-12);
+  flex-direction: column;
+  gap: var(--space-4);
 }
 
-.specs__page-btn {
-  min-width: var(--space-32);
-  padding: var(--space-8) var(--space-12);
+.specs__label {
+  font-size: var(--font-size-12);
+  color: var(--color-gray);
+}
+
+.specs__value {
   font-size: var(--font-size-14);
   font-weight: var(--font-weight-semibold);
-  line-height: var(--line-height-none);
-  color: var(--color-secondary);
-  background-color: var(--color-white);
-  border: var(--border-thin) solid var(--color-gray-30);
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  transition:
-    background-color var(--transition-fast),
-    border-color var(--transition-fast),
-    color var(--transition-fast);
-}
-
-.specs__page-btn:hover:not(:disabled) {
-  background-color: var(--color-primary);
-  border-color: var(--color-primary);
+  line-height: var(--line-height-normal);
   color: var(--color-warning);
 }
 
-.specs__page-btn:disabled {
-  color: var(--color-light-gray);
-  cursor: not-allowed;
+/* ----- Hardware Specifications ------------------------------- */
+
+.specs__specifications {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-20);
 }
 
-.specs__page-btn__is-active {
-  background-color: var(--color-secondary);
-  border-color: var(--color-secondary);
-  color: var(--color-white);
+.specs__spec {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding-bottom: var(--space-12);
+  border-bottom: var(--border-thin) solid var(--color-light-gray);
 }
 
-.specs__page-btn__is-active:hover {
-  background-color: var(--color-secondary);
-  border-color: var(--color-secondary);
-  color: var(--color-white);
+/* ----- Hardware Icon ---------------------------------------- */
+
+.specs__spec-icon {
+  width: var(--space-32);
+  height: var(--space-32);
+  border-radius: var(--radius-md);
+  background-color: var(--color-accent);
+  color: var(--color-secondary);
+  font-size: var(--font-size-14);
 }
 
-/* ----- Responsive --------------------------------------------- */
+/* ----- Maintenance / Issues / History ----------------------- */
+
+.specs__record {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.specs__record-text {
+  font-size: var(--font-size-14);
+  color: var(--color-gray);
+}
+
+/* ----- Actions ---------------------------------------------- */
+
+.specs__actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  padding-bottom: var(--space-24);
+}
+
+/* ----- Responsive ------------------------------------------- */
+
 @media (max-width: 900px) {
-  .specs__search,
-  .specs__filter {
-    flex: 1 1 100%;
+  .specs__information {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .specs__specifications {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .specs__computer-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .specs__information {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .specs__specifications {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .specs__tabs {
+    flex-wrap: wrap;
   }
 }
