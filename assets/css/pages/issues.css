@@ -1,0 +1,47 @@
+@import url("../component/badge/base.css");
+@import url("../component/buttons/base.css");
+@import url("../component/inputs/base.css");
+@import url("../component/tables/base.css");
+@import url("../layout/header.css");
+@import url("../layout/footer.css");
+@import url("../layout/main-container.css");
+
+
+.btn-nav {
+  justify-content: start;
+}
+
+
+/* ----- Header ------------------------------------------------ */
+
+.issues__header {
+  padding: 0 var(--space-24);
+  background-color: var(--color-white);
+  border-bottom: var(--border-thin) solid var(--color-light-gray);
+}
+
+
+.issues__page-title {
+  font-size: var(--font-size-32);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-none);
+  color: var(--color-secondary);
+}
+
+
+.issues__user {
+  padding: var(--space-8) var(--space-12);
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent);
+}
+
+
+.issues__avatar {
+  width: var(--space-32);
+  height: var(--space-32);
+  border-radius: var(--radius-full);
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-bold);
+}
