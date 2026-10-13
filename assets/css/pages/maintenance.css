@@ -1,0 +1,85 @@
+@import url("../component/buttons/base.css");
+@import url("../layout/header.css");
+
+/* ----- Navbar ------------------------------------------------ */
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  padding: var(--space-12) var(--space-20);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-none);
+  color: var(--color-white);
+  background-color: var(--color-secondary);
+  border: var(--border-thin) solid var(--color-secondary);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-dark);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+.btn-secondary:focus-visible {
+  outline: var(--border-medium) solid var(--color-secondary-50);
+  outline-offset: var(--space-4);
+}
+
+.btn-secondary__is-active {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-dark);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-nav {
+  justify-content: start;
+}
+
+/* ----- Header ------------------------------------------------ */
+
+.maintenance__header {
+  padding: 0 var(--space-24);
+  background-color: var(--color-white);
+  border-bottom: var(--border-thin) solid var(--color-light-gray);
+}
+
+.maintenance__page-title {
+  font-size: var(--font-size-32);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-none);
+  color: var(--color-secondary);
+}
+
+.maintenance__user {
+  padding: var(--space-8) var(--space-12);
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent);
+}
+
+.maintenance__avatar {
+  width: var(--space-32);
+  height: var(--space-32);
+  border-radius: var(--radius-full);
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-bold);
+}
