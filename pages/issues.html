@@ -26,7 +26,7 @@
           <a class="btn-secondary btn-nav" href="computers/computer-specs.html">Specs</a>
         </div>
         <a class="btn-secondary btn-nav" href="maintenance.html">MAINTENANCE</a>
-        <a class="btn-secondary btn-nav" href="issues.html">ISSUES</a>
+        <a class="btn-secondary btn-nav btn-secondary__is-active" href="issues.html">ISSUES</a>
         <a class="btn-secondary btn-nav" href="reports.html">REPORTS</a>
         <a class="btn-secondary btn-nav" href="accounts.html">ACCOUNTS</a>
       </nav>
@@ -43,6 +43,180 @@
           <i class="fa-solid fa-chevron-down text-12 text-gray" aria-hidden="true"></i>
         </div>
       </header>
+
+ <main>
+  <section>
+    <h2>Issue Management</h2>
+    <p>Track and resolve laboratory computer issues.</p>
+    <button type="button">+ Report Issue</button>
+  </section>
+
+  <section aria-label="Issue summary">
+    <article>
+      <h3>Total Issues</h3>
+      <p>24</p>
+    </article>
+
+    <article>
+      <h3>Open</h3>
+      <p>8</p>
+    </article>
+
+    <article>
+      <h3>In Progress</h3>
+      <p>6</p>
+    </article>
+
+    <article>
+      <h3>Resolved</h3>
+      <p>10</p>
+    </article>
+  </section>
+
+  <section aria-label="Search and filter issues">
+    <form id="issueFilters">
+      <div>
+        <label for="issueSearch">Search</label>
+        <input
+          type="search"
+          id="issueSearch"
+          name="search"
+          placeholder="Search issues..."
+        />
+      </div>
+
+      <div>
+        <label for="priorityFilter">Priority</label>
+        <select id="priorityFilter" name="priority">
+          <option value="">All</option>
+          <option value="High">High</option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="categoryFilter">Category</label>
+        <select id="categoryFilter" name="category">
+          <option value="">All</option>
+          <option value="Hardware">Hardware</option>
+          <option value="Software">Software</option>
+          <option value="Network">Network</option>
+        </select>
+      </div>
+
+      <button type="reset">Reset</button>
+    </form>
+  </section>
+
+  <nav aria-label="Issue status">
+    <button type="button" aria-pressed="true">All Issues (24)</button>
+    <button type="button" aria-pressed="false">Open (8)</button>
+    <button type="button" aria-pressed="false">In Progress (6)</button>
+    <button type="button" aria-pressed="false">Resolved (10)</button>
+  </nav>
+
+  <section aria-label="Issues list">
+    <table aria-label="Laboratory computer issues">
+      <thead>
+        <tr>
+          <th scope="col">Issue ID</th>
+          <th scope="col">Computer</th>
+          <th scope="col">Issue Description</th>
+          <th scope="col">Priority</th>
+          <th scope="col">Status</th>
+          <th scope="col">Reported</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <th scope="row">ISS-024</th>
+          <td>PC-012</td>
+          <td>Monitor has no display</td>
+          <td>High</td>
+          <td>Open</td>
+          <td>Oct 22</td>
+          <td>
+            <button type="button" aria-label="View issue ISS-024">View</button>
+          </td>
+        </tr>
+
+        <tr>
+          <th scope="row">ISS-023</th>
+          <td>PC-008</td>
+          <td>No internet connection</td>
+          <td>Medium</td>
+          <td>In Progress</td>
+          <td>Oct 22</td>
+          <td>
+            <button type="button" aria-label="View issue ISS-023">View</button>
+          </td>
+        </tr>
+
+        <tr>
+          <th scope="row">ISS-022</th>
+          <td>PC-019</td>
+          <td>Keyboard not responding</td>
+          <td>Medium</td>
+          <td>Open</td>
+          <td>Oct 21</td>
+          <td>
+            <button type="button" aria-label="View issue ISS-022">View</button>
+          </td>
+        </tr>
+
+        <tr>
+          <th scope="row">ISS-021</th>
+          <td>PC-004</td>
+          <td>Computer running slowly</td>
+          <td>Low</td>
+          <td>In Progress</td>
+          <td>Oct 21</td>
+          <td>
+            <button type="button" aria-label="View issue ISS-021">View</button>
+          </td>
+        </tr>
+
+        <tr>
+          <th scope="row">ISS-020</th>
+          <td>PC-015</td>
+          <td>System will not start</td>
+          <td>High</td>
+          <td>Open</td>
+          <td>Oct 20</td>
+          <td>
+            <button type="button" aria-label="View issue ISS-020">View</button>
+          </td>
+        </tr>
+
+        <tr>
+          <th scope="row">ISS-019</th>
+          <td>PC-006</td>
+          <td>Missing app shortcut</td>
+          <td>Low</td>
+          <td>Resolved</td>
+          <td>Oct 20</td>
+          <td>
+            <button type="button" aria-label="View issue ISS-019">View</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Showing 1–6 of 24 issues</p>
+
+    <nav aria-label="Issues pagination">
+      <button type="button" disabled>Prev</button>
+      <button type="button" aria-current="page">1</button>
+      <button type="button">2</button>
+      <button type="button">3</button>
+      <button type="button">4</button>
+      <button type="button">Next</button>
+    </nav>
+  </section>
+</main>
     </div>
   </body>
 </html>

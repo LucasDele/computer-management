@@ -43,6 +43,59 @@
           <i class="fa-solid fa-chevron-down text-12 text-gray" aria-hidden="true"></i>
         </div>
       </header>
+
+      <main>
+  <form id="maintenanceForm">
+    <section>
+      <label for="computer">Computer</label>
+      <input type="text" id="computer" name="computer" required />
+    </section>
+
+    <section>
+      <label for="performedBy">Performed By</label>
+      <input type="text" id="performedBy" name="performed_by" required />
+    </section>
+
+    <section>
+      <label for="maintenanceType">Maintenance Type</label>
+      <select id="maintenanceType" name="maintenance_type" required>
+        <option value="" disabled selected>Select maintenance type</option>
+        <option value="Preventive">Preventive</option>
+        <option value="Corrective">Corrective</option>
+      </select>
+    </section>
+
+    <section>
+      <label for="description">Description</label>
+      <textarea id="description" name="description" rows="4" required></textarea>
+    </section>
+
+    <section>
+      <label for="datePerformed">Date Performed</label>
+      <input type="date" id="datePerformed" name="date_performed" required />
+    </section>
+
+    <section>
+      <label for="status">Status</label>
+      <select id="status" name="status" required>
+        <option value="" disabled selected>Select status</option>
+        <option value="Pending">Pending</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Completed">Completed</option>
+      </select>
+    </section>
+
+    <section>
+      <label for="remarks">Remarks</label>
+      <textarea id="remarks" name="remarks" rows="3"></textarea>
+    </section>
+
+    <div>
+      <button type="reset">Clear</button>
+      <button type="submit">Save Record</button>
+    </div>
+  </form>
+</main>
     </div>
   </body>
 </html>

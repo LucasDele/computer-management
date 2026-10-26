@@ -43,6 +43,110 @@
           <i class="fa-solid fa-chevron-down text-12 text-gray" aria-hidden="true"></i>
         </div>
       </header>
+
+      <main>
+  <section>
+    <h2>Reports</h2>
+    <p>Generate and review laboratory records.</p>
+  </section>
+
+  <section aria-labelledby="reportTypesTitle">
+    <h3 id="reportTypesTitle">Report Type</h3>
+
+    <article>
+      <h4>Inventory Report</h4>
+      <button type="button" aria-label="Generate inventory report">
+        Generate →
+      </button>
+    </article>
+
+    <article>
+      <h4>Maintenance Report</h4>
+      <button type="button" aria-label="Generate maintenance report">
+        Generate →
+      </button>
+    </article>
+
+    <article>
+      <h4>Issue Report</h4>
+      <button type="button" aria-label="Generate issue report">
+        Generate →
+      </button>
+    </article>
+
+    <article>
+      <h4>Computer Status</h4>
+      <button type="button" aria-label="Generate computer status report">
+        Generate →
+      </button>
+    </article>
+  </section>
+
+  <section aria-labelledby="reportFiltersTitle">
+    <h3 id="reportFiltersTitle">Report Filters</h3>
+
+    <form id="reportFilters">
+      <section>
+        <label for="dateFrom">Date From</label>
+        <input type="date" id="dateFrom" name="date_from" />
+      </section>
+
+      <section>
+        <label for="dateTo">Date To</label>
+        <input type="date" id="dateTo" name="date_to" />
+      </section>
+
+      <section>
+        <label for="laboratory">Laboratory</label>
+        <select id="laboratory" name="laboratory">
+          <option value="">All</option>
+          <option value="Lab 1">Lab 1</option>
+          <option value="Lab 2">Lab 2</option>
+          <option value="Lab 3">Lab 3</option>
+        </select>
+      </section>
+
+      <section>
+        <label for="reportStatus">Status</label>
+        <select id="reportStatus" name="status">
+          <option value="">All</option>
+          <option value="Operational">Operational</option>
+          <option value="Under Maintenance">Under Maintenance</option>
+          <option value="Damaged">Damaged</option>
+          <option value="For Replacement">For Replacement</option>
+        </select>
+      </section>
+
+      <div>
+        <button type="submit">Generate Report</button>
+      </div>
+    </form>
+  </section>
+
+  <section aria-labelledby="recentReportsTitle">
+    <h3 id="recentReportsTitle">Recently Generated</h3>
+
+    <article>
+      <h4>Inventory Report — Aug 23</h4>
+      <button type="button" aria-label="View inventory report">
+        View
+      </button>
+      <button type="button" aria-label="Download inventory report as PDF">
+        PDF
+      </button>
+    </article>
+
+    <article>
+      <h4>Maintenance Report — Aug 20</h4>
+      <button type="button" aria-label="View maintenance report">
+        View
+      </button>
+      <button type="button" aria-label="Download maintenance report as PDF">
+        PDF
+      </button>
+    </article>
+  </section>
+</main>
     </div>
   </body>
 </html>
