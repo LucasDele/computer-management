@@ -1,0 +1,245 @@
+.liquid-landing {
+  overflow-x: clip;
+}
+
+/* ----- Floating hardware ------------------------------------ */
+
+.liquid-landing::before {
+  background:
+    radial-gradient(ellipse at 85% 12%, rgba(255, 219, 123, .56), transparent 48%),
+    radial-gradient(ellipse at 8% 83%, rgba(113, 172, 235, .48), transparent 52%),
+    linear-gradient(120deg, rgba(242, 248, 255, .88), rgba(233, 241, 252, .76)),
+    url("../../images/backgrounds/computer-lab.jpg") center / cover;
+}
+
+.liquid-landing .glass-orb {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  pointer-events: none;
+  filter: drop-shadow(0 20px 24px rgba(31, 64, 103, .13));
+  animation: watery-hardware-float 10s ease-in-out infinite alternate;
+}
+
+.liquid-landing .glass-orb--gold {
+  top: 9vh;
+  right: -2vw;
+  width: clamp(260px, 29vw, 460px);
+  height: auto;
+  aspect-ratio: 1;
+  opacity: .72;
+  background-image: url("../../images/decorations/floating-keyboard-mouse.png");
+  animation-delay: -5s;
+}
+
+.liquid-landing .glass-orb--blue {
+  left: -3vw;
+  bottom: -7vh;
+  width: clamp(280px, 31vw, 480px);
+  height: auto;
+  aspect-ratio: 2 / 3;
+  opacity: .72;
+  background-image: url("../../images/decorations/floating-laptop.png");
+}
+
+.liquid-landing.glass-public .glass-orb {
+  opacity: .38;
+}
+
+@keyframes watery-hardware-float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-18px); }
+}
+
+/* ----- Clear material: no background blur -------------------- */
+
+.liquid-landing .glass-surface {
+  background: linear-gradient(135deg, rgba(255, 255, 255, .24), rgba(255, 255, 255, .07));
+  border: 1px solid rgba(255, 255, 255, .72);
+  -webkit-backdrop-filter: saturate(115%) contrast(102%);
+  backdrop-filter: var(--water-refraction, saturate(115%) contrast(102%));
+  box-shadow:
+    inset 1px 1px 1px rgba(255, 255, 255, .92),
+    inset -1px -1px 1px rgba(90, 126, 166, .22),
+    inset 0 0 18px rgba(255, 255, 255, .09),
+    0 20px 48px rgba(36, 69, 117, .10);
+}
+
+.liquid-landing .glass-surface::before {
+  background:
+    radial-gradient(ellipse at var(--water-x, var(--pointer-x, 30%)) var(--water-y, var(--pointer-y, 0%)), rgba(255, 255, 255, .27), transparent 55%),
+    linear-gradient(120deg, rgba(255, 255, 255, .06), transparent 40%, rgba(255, 255, 255, .04));
+}
+
+.liquid-landing .glass-surface::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow:
+    inset 2px 2px 2px rgba(255, 255, 255, .65),
+    inset -2px -2px 3px rgba(255, 255, 255, .30),
+    inset 0 -8px 12px -12px rgba(31, 73, 118, .45);
+}
+
+/* A thin reflective rim leaves the center clear. */
+@supports (mask-composite: exclude) {
+  .liquid-landing .glass-surface::after {
+    padding: 2px;
+    background: conic-gradient(
+      from var(--water-angle, 140deg),
+      rgba(255, 255, 255, .12),
+      rgba(255, 255, 255, .94) 18%,
+      rgba(145, 187, 226, .25) 36%,
+      rgba(255, 255, 255, .12) 50%,
+      rgba(255, 255, 255, .88) 70%,
+      rgba(255, 226, 155, .25) 86%,
+      rgba(255, 255, 255, .12)
+    );
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+  }
+}
+
+.liquid-landing .hero h1,
+.glass-public .glass-info-card h3,
+.glass-public .glass-cta h2 {
+  text-shadow: 0 1px 1px rgba(255, 255, 255, .35);
+}
+
+.liquid-landing .hero p,
+.glass-public .glass-info-card p,
+.glass-public .glass-cta p {
+  color: #344e6c;
+}
+
+.liquid-landing .glass-eyebrow,
+.liquid-landing > header nav a[aria-current="page"] {
+  background: rgba(255, 255, 255, .26);
+}
+
+.liquid-landing .glass-button.btn-secondary {
+  background: linear-gradient(140deg, rgba(255, 255, 255, .32), rgba(255, 255, 255, .08));
+}
+
+.glass-login #loginForm .input__login {
+  background: rgba(255, 255, 255, .35);
+}
+
+.glass-login #loginForm .input__login:focus {
+  background: rgba(255, 255, 255, .62);
+}
+
+/* ----- Pointer-responsive panels ----------------------------- */
+
+/* Entrance animation finishes first; JavaScript then drives a damped spring. */
+.liquid-landing .watery-interactive:not(.glass-enter) {
+  transform:
+    perspective(1200px)
+    translate3d(var(--water-shift-x, 0px), var(--water-shift-y, 0px), 0)
+    rotateX(var(--water-tilt-x, 0deg))
+    rotateY(var(--water-tilt-y, 0deg))
+    scale(var(--water-scale, 1));
+  transform-origin: center;
+  transition: box-shadow .35s ease;
+}
+
+.liquid-landing .watery-interactive.watery-tracking {
+  will-change: transform;
+}
+
+.liquid-landing .watery-interactive:focus-within {
+  transform: none;
+}
+
+/* ----- Visible login checkboxes ------------------------------ */
+
+.glass-login #loginForm input[type="checkbox"] {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  color: #fff;
+  background: rgba(255, 255, 255, .88);
+  border: 2px solid #46658a;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.glass-login #loginForm input[type="checkbox"]:checked {
+  background: #173b6c;
+  border-color: #173b6c;
+}
+
+/* CSS-drawn white tick stays visible independently of font colors. */
+.glass-login #loginForm input[type="checkbox"]::before {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 9px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: translateY(-1px) rotate(45deg);
+  opacity: 0;
+}
+
+.glass-login #loginForm input[type="checkbox"]:checked::before {
+  opacity: 1;
+}
+
+.glass-login #loginForm input[type="checkbox"]:focus-visible {
+  outline: 3px solid #173b6c;
+  outline-offset: 4px;
+}
+
+.glass-login #loginForm .watery-password-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  margin-top: var(--space-12);
+  font-size: var(--font-size-14);
+  line-height: 1.5;
+}
+
+.glass-login #loginForm .watery-password-toggle label {
+  margin: 0;
+  cursor: pointer;
+}
+
+.watery-filter-definitions {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* ----- Responsive and motion preferences --------------------- */
+
+@media (max-width: 800px) {
+  .liquid-landing .glass-orb--gold { width: 280px; right: -65px; top: 16vh; opacity: .30; }
+  .liquid-landing .glass-orb--blue { width: 290px; left: -70px; bottom: -60px; opacity: .30; }
+  .liquid-landing.glass-public .glass-orb { opacity: .18; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .liquid-landing .glass-orb { animation: none; }
+  .liquid-landing .watery-interactive:not(.glass-enter),
+  .liquid-landing .watery-interactive:hover { transform: none; will-change: auto; }
+}
+
+@media (forced-colors: active) {
+  .glass-login #loginForm input[type="checkbox"] { appearance: auto; -webkit-appearance: auto; }
+  .glass-login #loginForm input[type="checkbox"]::before { display: none; }
+}

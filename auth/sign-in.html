@@ -6,9 +6,31 @@
     <title>Sign In - Computer Laboratory Inventory System</title>
     <link rel="stylesheet" href="../assets/css/style.css" />
     <link rel="stylesheet" href="../assets/css/pages/login.css" />
+    <link rel="stylesheet" href="../assets/css/pages/landing-glass.css" />
+    <link rel="stylesheet" href="../assets/css/pages/public-glass.css" />
+    <link rel="stylesheet" href="../assets/css/pages/watery-glass.css" />
   </head>
-  <body class="h-screen d-flex flex-column items-center justify-center">
-    <div class="bg-white rounded-lg shadow-lg p-12" style="width: 100%; max-width: 450px; margin: var(--space-16)">
+  <body class="liquid-landing glass-login">
+    <div class="glass-orb glass-orb--blue" aria-hidden="true"></div>
+    <div class="glass-orb glass-orb--gold" aria-hidden="true"></div>
+    <header class="px-24 header__h-10 d-flex flex-row justify-between items-center bg-secondary glass-surface glass-enter">
+      <div class="d-flex flex-row items-center gap-3 text-white">
+        <img class="w-64 h-64" src="../assets/images/logo/britech-logo.png" alt="Britech logo" />
+        <div>
+          <h1>Britech College</h1>
+          <p class="text-sm text-accent">White Rose, Yati, Liloan, Cebu City, 6000</p>
+        </div>
+      </div>
+      <nav class="d-flex flex-row">
+        <a class="btn-tertiary" href="../index.html">Home</a>
+        <a class="btn-tertiary" href="../pages/about.html">About</a>
+        <a class="btn-tertiary" href="../pages/features.html">Features</a>
+        <a class="btn-tertiary" href="../pages/how-it-works.html">How It Works</a>
+      </nav>
+      <a href="./sign-in.html" aria-current="page" class="btn-primary glass-button">LOGIN</a>
+    </header>
+    <main class="glass-login-main">
+    <div class="bg-white rounded-lg shadow-lg p-12 glass-login-card glass-surface glass-enter">
       <!-- Login Header with Logo -->
       <div class="text-center mb-8">
         <div class="d-flex flex-column items-center justify-center">
@@ -53,13 +75,15 @@
         <!-- Login Button -->
         <button
           type="button"
-          class="w-100 bg-primary text-secondary p-3 rounded-sm font-bold text-base shadow-md"
-          style="border: none; cursor: pointer; transition: all 0.3s ease"
+          class="w-100 bg-primary text-secondary p-3 rounded-sm font-bold text-base shadow-md glass-button btn-primary"
           onclick="window.location.href = '../pages/dashboard.html'"
         >
           Login
         </button>
       </form>
     </div>
+    </main>
+    <script src="../assets/js/pages/landing-glass.js" defer></script>
+    <script src="../assets/js/pages/watery-glass.js" defer></script>
   </body>
 </html>

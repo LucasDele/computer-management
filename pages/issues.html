@@ -33,7 +33,7 @@
     </aside>
 
     <!-- Right Container -->
-    <div class="w-100 overflow-hidden">
+    <div class="w-100 overflow-hidden issues__container">
       <header class="header__h-10 issues__header d-flex flex-row items-center justify-between">
         <h2 class="issues__page-title">Issues</h2>
 
@@ -44,179 +44,105 @@
         </div>
       </header>
 
- <main>
-  <section>
-    <h2>Issue Management</h2>
-    <p>Track and resolve laboratory computer issues.</p>
-    <button type="button">+ Report Issue</button>
-  </section>
+ <main class="main-container__h-90 issues__main">
+        <div class="d-flex flex-column gap-5">
+          <section class="d-flex flex-row justify-between items-center flex-wrap gap-3">
+            <div class="d-flex flex-column gap-2">
+              <h2 class="issues__title">Issue Management</h2>
+              <p class="issues__subtitle">Track and resolve laboratory computer issues.</p>
+            </div>
+            <button class="btn-primary issues__report" type="button">+ Report Issue</button>
+          </section>
 
-  <section aria-label="Issue summary">
-    <article>
-      <h3>Total Issues</h3>
-      <p>24</p>
-    </article>
+          <section class="issues__stats" aria-label="Issue summary">
+            <article class="issues__card issues__stat issues__stat--total d-flex flex-column gap-3">
+              <h3 class="issues__stat-label">Total Issues</h3>
+              <p class="issues__stat-value">24</p>
+            </article>
+            <article class="issues__card issues__stat issues__stat--open d-flex flex-column gap-3">
+              <h3 class="issues__stat-label">Open</h3>
+              <p class="issues__stat-value">8</p>
+            </article>
+            <article class="issues__card issues__stat issues__stat--progress d-flex flex-column gap-3">
+              <h3 class="issues__stat-label">In Progress</h3>
+              <p class="issues__stat-value">6</p>
+            </article>
+            <article class="issues__card issues__stat issues__stat--resolved d-flex flex-column gap-3">
+              <h3 class="issues__stat-label">Resolved</h3>
+              <p class="issues__stat-value">10</p>
+            </article>
+          </section>
 
-    <article>
-      <h3>Open</h3>
-      <p>8</p>
-    </article>
+          <section class="issues__card" aria-label="Search and filter issues">
+            <form class="issues__toolbar items-end" id="issueFilters">
+              <div class="d-flex flex-column gap-2">
+                <label class="text-14 font-semibold text-secondary" for="issueSearch">Search</label>
+                <input class="input issues__field" type="search" id="issueSearch" name="search" placeholder="Search issues..." />
+              </div>
+              <div class="d-flex flex-column gap-2">
+                <label class="text-14 font-semibold text-secondary" for="priorityFilter">Priority</label>
+                <select class="select issues__field" id="priorityFilter" name="priority">
+                  <option value="">All</option>
+                  <option value="High">High</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Low">Low</option>
+                </select>
+              </div>
+              <div class="d-flex flex-column gap-2">
+                <label class="text-14 font-semibold text-secondary" for="categoryFilter">Category</label>
+                <select class="select issues__field" id="categoryFilter" name="category">
+                  <option value="">All</option>
+                  <option value="Hardware">Hardware</option>
+                  <option value="Software">Software</option>
+                  <option value="Network">Network</option>
+                </select>
+              </div>
+              <button class="btn-secondary" type="reset">Reset</button>
+            </form>
+          </section>
 
-    <article>
-      <h3>In Progress</h3>
-      <p>6</p>
-    </article>
+          <nav class="issues__tabs d-flex flex-row flex-wrap gap-2" aria-label="Issue status">
+            <button class="btn-tertiary issues__tab issues__tab__is-active" type="button" aria-pressed="true">All Issues (24)</button>
+            <button class="btn-tertiary issues__tab" type="button" aria-pressed="false">Open (8)</button>
+            <button class="btn-tertiary issues__tab" type="button" aria-pressed="false">In Progress (6)</button>
+            <button class="btn-tertiary issues__tab" type="button" aria-pressed="false">Resolved (10)</button>
+          </nav>
 
-    <article>
-      <h3>Resolved</h3>
-      <p>10</p>
-    </article>
-  </section>
-
-  <section aria-label="Search and filter issues">
-    <form id="issueFilters">
-      <div>
-        <label for="issueSearch">Search</label>
-        <input
-          type="search"
-          id="issueSearch"
-          name="search"
-          placeholder="Search issues..."
-        />
-      </div>
-
-      <div>
-        <label for="priorityFilter">Priority</label>
-        <select id="priorityFilter" name="priority">
-          <option value="">All</option>
-          <option value="High">High</option>
-          <option value="Medium">Medium</option>
-          <option value="Low">Low</option>
-        </select>
-      </div>
-
-      <div>
-        <label for="categoryFilter">Category</label>
-        <select id="categoryFilter" name="category">
-          <option value="">All</option>
-          <option value="Hardware">Hardware</option>
-          <option value="Software">Software</option>
-          <option value="Network">Network</option>
-        </select>
-      </div>
-
-      <button type="reset">Reset</button>
-    </form>
-  </section>
-
-  <nav aria-label="Issue status">
-    <button type="button" aria-pressed="true">All Issues (24)</button>
-    <button type="button" aria-pressed="false">Open (8)</button>
-    <button type="button" aria-pressed="false">In Progress (6)</button>
-    <button type="button" aria-pressed="false">Resolved (10)</button>
-  </nav>
-
-  <section aria-label="Issues list">
-    <table aria-label="Laboratory computer issues">
-      <thead>
-        <tr>
-          <th scope="col">Issue ID</th>
-          <th scope="col">Computer</th>
-          <th scope="col">Issue Description</th>
-          <th scope="col">Priority</th>
-          <th scope="col">Status</th>
-          <th scope="col">Reported</th>
-          <th scope="col">Action</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr>
-          <th scope="row">ISS-024</th>
-          <td>PC-012</td>
-          <td>Monitor has no display</td>
-          <td>High</td>
-          <td>Open</td>
-          <td>Oct 22</td>
-          <td>
-            <button type="button" aria-label="View issue ISS-024">View</button>
-          </td>
-        </tr>
-
-        <tr>
-          <th scope="row">ISS-023</th>
-          <td>PC-008</td>
-          <td>No internet connection</td>
-          <td>Medium</td>
-          <td>In Progress</td>
-          <td>Oct 22</td>
-          <td>
-            <button type="button" aria-label="View issue ISS-023">View</button>
-          </td>
-        </tr>
-
-        <tr>
-          <th scope="row">ISS-022</th>
-          <td>PC-019</td>
-          <td>Keyboard not responding</td>
-          <td>Medium</td>
-          <td>Open</td>
-          <td>Oct 21</td>
-          <td>
-            <button type="button" aria-label="View issue ISS-022">View</button>
-          </td>
-        </tr>
-
-        <tr>
-          <th scope="row">ISS-021</th>
-          <td>PC-004</td>
-          <td>Computer running slowly</td>
-          <td>Low</td>
-          <td>In Progress</td>
-          <td>Oct 21</td>
-          <td>
-            <button type="button" aria-label="View issue ISS-021">View</button>
-          </td>
-        </tr>
-
-        <tr>
-          <th scope="row">ISS-020</th>
-          <td>PC-015</td>
-          <td>System will not start</td>
-          <td>High</td>
-          <td>Open</td>
-          <td>Oct 20</td>
-          <td>
-            <button type="button" aria-label="View issue ISS-020">View</button>
-          </td>
-        </tr>
-
-        <tr>
-          <th scope="row">ISS-019</th>
-          <td>PC-006</td>
-          <td>Missing app shortcut</td>
-          <td>Low</td>
-          <td>Resolved</td>
-          <td>Oct 20</td>
-          <td>
-            <button type="button" aria-label="View issue ISS-019">View</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-    <p>Showing 1–6 of 24 issues</p>
-
-    <nav aria-label="Issues pagination">
-      <button type="button" disabled>Prev</button>
-      <button type="button" aria-current="page">1</button>
-      <button type="button">2</button>
-      <button type="button">3</button>
-      <button type="button">4</button>
-      <button type="button">Next</button>
-    </nav>
-  </section>
-</main>
+          <section class="issues__card d-flex flex-column gap-4" aria-label="Issues list">
+            <div class="issues__table-wrapper">
+              <table class="table issues__table" aria-label="Laboratory computer issues">
+                <thead>
+                  <tr>
+                    <th scope="col">Issue ID</th>
+                    <th scope="col">Computer</th>
+                    <th scope="col">Issue Description</th>
+                    <th scope="col">Priority</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Reported</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="issues__empty" colspan="7">Coming Soon</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="d-flex flex-row justify-between items-center flex-wrap gap-3">
+              <p class="issues__result-count">Showing 1–6 of 24 issues</p>
+              <nav class="d-flex flex-row flex-wrap gap-2" aria-label="Issues pagination">
+                <button class="btn-secondary issues__page-btn" type="button" disabled>Prev</button>
+                <button class="btn-secondary issues__page-btn issues__page-btn__is-active" type="button" aria-current="page">1</button>
+                <button class="btn-secondary issues__page-btn" type="button">2</button>
+                <button class="btn-secondary issues__page-btn" type="button">3</button>
+                <button class="btn-secondary issues__page-btn" type="button">4</button>
+                <button class="btn-secondary issues__page-btn" type="button">Next</button>
+              </nav>
+            </div>
+          </section>
+        </div>
+      </main>
     </div>
   </body>
 </html>

@@ -6,11 +6,13 @@
 @import url("../layout/footer.css");
 @import url("../layout/main-container.css");
 
-
 .btn-nav {
   justify-content: start;
 }
 
+.btn-secondary__is-active {
+  color: var(--color-warning);
+}
 
 /* ----- Header ------------------------------------------------ */
 
@@ -20,7 +22,6 @@
   border-bottom: var(--border-thin) solid var(--color-light-gray);
 }
 
-
 .issues__page-title {
   font-size: var(--font-size-32);
   font-weight: var(--font-weight-bold);
@@ -28,13 +29,11 @@
   color: var(--color-secondary);
 }
 
-
 .issues__user {
   padding: var(--space-8) var(--space-12);
   border-radius: var(--radius-full);
   background-color: var(--color-accent);
 }
-
 
 .issues__avatar {
   width: var(--space-32);
@@ -44,4 +43,218 @@
   color: var(--color-white);
   font-size: var(--font-size-12);
   font-weight: var(--font-weight-bold);
+}
+
+/* ----- Main and card shell ----------------------------------- */
+
+.issues__container {
+  min-width: 0;
+}
+
+.issues__main {
+  padding: var(--space-24);
+  background-color: var(--color-accent);
+}
+
+.issues__title {
+  font-size: var(--font-size-32);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-secondary);
+}
+
+.issues__subtitle {
+  font-size: var(--font-size-14);
+  line-height: var(--line-height-normal);
+  color: var(--color-gray);
+}
+
+.issues__report {
+  color: var(--color-warning);
+}
+
+.issues__card {
+  padding: var(--space-20);
+  background-color: var(--color-white);
+  border: var(--border-thin) solid var(--color-light-gray);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ----- Issue overview ---------------------------------------- */
+
+.issues__stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-16);
+}
+
+.issues__stat {
+  border-left: var(--border-thick) solid var(--color-secondary);
+  transition:
+    box-shadow var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.issues__stat:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.issues__stat--total,
+.issues__stat--resolved {
+  border-left-color: var(--color-secondary);
+}
+
+.issues__stat--open {
+  border-left-color: var(--status-maintenance);
+}
+
+.issues__stat--progress {
+  border-left-color: var(--status-operational);
+}
+
+.issues__stat-value {
+  font-size: var(--font-size-40);
+  font-weight: var(--font-weight-extrabold);
+  line-height: var(--line-height-none);
+  color: var(--color-warning);
+}
+
+.issues__stat-label {
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+  color: var(--color-gray);
+}
+
+/* ----- Form fields ------------------------------------------- */
+
+.issues__toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 1fr) minmax(0, 1fr) auto;
+  gap: var(--space-16);
+}
+
+.issues__toolbar > * {
+  min-width: 0;
+}
+
+.issues__field {
+  color: var(--color-warning);
+  background-color: var(--color-white);
+}
+
+/* ----- Status tabs ------------------------------------------- */
+
+.issues__tabs {
+  border-bottom: var(--border-thin) solid var(--color-gray-30);
+}
+
+.issues__tab {
+  padding: var(--space-12) var(--space-16);
+  border-bottom: var(--border-medium) solid transparent;
+  color: var(--color-gray);
+}
+
+.issues__tab:hover {
+  background-color: var(--color-white);
+  color: var(--color-secondary);
+}
+
+.issues__tab__is-active {
+  background-color: var(--color-white);
+  border-bottom-color: var(--color-primary);
+  color: var(--color-secondary);
+}
+
+/* ----- Issues table ------------------------------------------ */
+
+.issues__table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: var(--border-thin) solid var(--color-gray-30);
+  border-radius: var(--radius-md);
+}
+
+.issues__table {
+  color: var(--color-warning);
+}
+
+.issues__table thead {
+  background-color: var(--color-accent);
+}
+
+.issues__table th {
+  color: var(--color-secondary);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: var(--font-size-12);
+}
+
+.issues__table tbody tr:hover {
+  background-color: var(--color-accent);
+}
+
+.issues__table .issues__empty {
+  padding: var(--space-32);
+  font-size: var(--font-size-14);
+  text-align: left;
+  color: var(--color-gray);
+}
+
+/* ----- Pagination -------------------------------------------- */
+
+.issues__result-count {
+  font-size: var(--font-size-14);
+  line-height: var(--line-height-normal);
+  color: var(--color-gray);
+}
+
+.issues__page-btn {
+  min-width: var(--space-32);
+  padding: var(--space-8) var(--space-12);
+  color: var(--color-secondary);
+  background-color: var(--color-white);
+  border-color: var(--color-gray-30);
+}
+
+.issues__page-btn:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-warning);
+}
+
+.issues__page-btn__is-active {
+  background-color: var(--color-secondary);
+  border-color: var(--color-secondary);
+  color: var(--color-white);
+}
+
+.issues__page-btn:disabled {
+  background-color: var(--color-accent);
+  border-color: var(--color-gray-30);
+  color: var(--color-gray);
+}
+
+/* ----- Responsive -------------------------------------------- */
+
+@media (max-width: 1200px) {
+  .issues__stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .issues__toolbar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .issues__stats {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .issues__toolbar {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
