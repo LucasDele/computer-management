@@ -44,179 +44,195 @@
         </div>
       </header>
 
- <main>
-  <section>
-    <h2>Issue Management</h2>
-    <p>Track and resolve laboratory computer issues.</p>
-    <button type="button">+ Report Issue</button>
-  </section>
+      <main class="main-container__h-90 issues__main d-flex flex-column gap-6">
+        <section class="d-flex flex-row flex-wrap items-center justify-between gap-3" aria-label="Issues actions">
+          <div class="issues__intro">
+            <h2>Issue Management</h2>
+            <p>Track and resolve laboratory computer issues.</p>
+          </div>
+          <button class="btn-primary" type="button" id="addIssueBtn">
+            <i class="fa-solid fa-plus" aria-hidden="true"></i>
+            Report Issue
+          </button>
+        </section>
 
-  <section aria-label="Issue summary">
-    <article>
-      <h3>Total Issues</h3>
-      <p>24</p>
-    </article>
+        <!-- Issue Overview  -->
+        <section class="issues__stats" aria-label="Issue overview">
+          <article class="issues__card issues__stat issues__stat--total d-flex flex-column gap-3">
+           <span class="issues__stat-value" id="totalIssues">0</span>
+           <span class="issues__stat-label">Total Issues</span>
+          </article>
 
-    <article>
-      <h3>Open</h3>
-      <p>8</p>
-    </article>
+          <article class="issues__card issues__stat issues__stat--open d-flex flex-column gap-3 ">
+            <span class="issues__stat-value" id="openIssues">0</span>
+            <span class="issues__stat-label">Open Issues</span>
+          </article>
 
-    <article>
-      <h3>In Progress</h3>
-      <p>6</p>
-    </article>
+          <article class="issues__card issues__stat--progress d-flex flex-column gap-3">
+           <span class="issues__stat-value" id="progressIssues">0</span>
+           <span class="issues__stat-label">In Progress</span>
+          </article>
 
-    <article>
-      <h3>Resolved</h3>
-      <p>10</p>
-    </article>
-  </section>
+          <article class="issues__card issues__stat issues__stat--resolved d-flex flex-column gap-3">
+            <span class="issues__stat-value" id="resolvedIssues">0</span>
+            <span class="issues__stat-label">Resolved Issues</span>
+          </article>
+        </section>
 
-  <section aria-label="Search and filter issues">
-    <form id="issueFilters">
-      <div>
-        <label for="issueSearch">Search</label>
-        <input
-          type="search"
-          id="issueSearch"
-          name="search"
-          placeholder="Search issues..."
-        />
-      </div>
+<!-- Issue records -->
+        <section class="issues__card d-flex flex-column gap-5">
+            <div class="d-flex flex-row flex-wrap items-center justify-between gap-3">
+              <h4 class="issues__card-title ">Reported Issues</h4>
+              <span class="issues__record-count" id="issueRecordCount">0 records</span>
+            </div>
 
-      <div>
-        <label for="priorityFilter">Priority</label>
-        <select id="priorityFilter" name="priority">
-          <option value="">All</option>
-          <option value="High">High</option>
-          <option value="Medium">Medium</option>
-          <option value="Low">Low</option>
-        </select>
-      </div>
+          <div class="issue__toolbar d-flex flex-row  flex-wrap items-center gap-3">
+            <div class="issues__search">
+              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+              <input class="input" type="search" id="issueSearch" placeholder="Search issues..." araia-label="Search issues">
 
-      <div>
-        <label for="categoryFilter">Category</label>
-        <select id="categoryFilter" name="category">
-          <option value="">All</option>
-          <option value="Hardware">Hardware</option>
-          <option value="Software">Software</option>
-          <option value="Network">Network</option>
-        </select>
-      </div>
+            </div>
+          </div>
+<!-- Search and filters -->
+          <select class="select issues__filter" id="statusFilter" aria-label="Filter by status">
+            <option value="">All Status</option>
+            <option value="Open">Open</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Resolved">Resolved</option>
+          </select>
 
-      <button type="reset">Reset</button>
-    </form>
-  </section>
+           <select class="select issues__filter" id="priorityFilter" aria-label="Filter by priority">
+             <option value="">All Priorities</option>
+             <option value="Hardware">Hardware</option>
+             <option value="Software">Software</option>
+             <option value="Network">Network</option>
 
-  <nav aria-label="Issue status">
-    <button type="button" aria-pressed="true">All Issues (24)</button>
-    <button type="button" aria-pressed="false">Open (8)</button>
-    <button type="button" aria-pressed="false">In Progress (6)</button>
-    <button type="button" aria-pressed="false">Resolved (10)</button>
-  </nav>
+           </select>
+  
 
-  <section aria-label="Issues list">
-    <table aria-label="Laboratory computer issues">
-      <thead>
-        <tr>
-          <th scope="col">Issue ID</th>
-          <th scope="col">Computer</th>
-          <th scope="col">Issue Description</th>
-          <th scope="col">Priority</th>
-          <th scope="col">Status</th>
-          <th scope="col">Reported</th>
-          <th scope="col">Action</th>
-        </tr>
-      </thead>
+            <button type="reset">Reset</button>
+          </form>
+        </section>
 
-      <tbody>
-        <tr>
-          <th scope="row">ISS-024</th>
-          <td>PC-012</td>
-          <td>Monitor has no display</td>
-          <td>High</td>
-          <td>Open</td>
-          <td>Oct 22</td>
-          <td>
-            <button type="button" aria-label="View issue ISS-024">View</button>
-          </td>
-        </tr>
+        <nav aria-label="Issue status">
+          <button type="button" aria-pressed="true">All Issues (24)</button>
+          <button type="button" aria-pressed="false">Open (8)</button>
+          <button type="button" aria-pressed="false">In Progress (6)</button>
+          <button type="button" aria-pressed="false">Resolved (10)</button>
+        </nav>
 
-        <tr>
-          <th scope="row">ISS-023</th>
-          <td>PC-008</td>
-          <td>No internet connection</td>
-          <td>Medium</td>
-          <td>In Progress</td>
-          <td>Oct 22</td>
-          <td>
-            <button type="button" aria-label="View issue ISS-023">View</button>
-          </td>
-        </tr>
+        <section aria-label="Issues list">
+          <div class="issues__table-wrapper">
 
-        <tr>
-          <th scope="row">ISS-022</th>
-          <td>PC-019</td>
-          <td>Keyboard not responding</td>
-          <td>Medium</td>
-          <td>Open</td>
-          <td>Oct 21</td>
-          <td>
-            <button type="button" aria-label="View issue ISS-022">View</button>
-          </td>
-        </tr>
+            <table class="table issues__table">
+              <thead>
+                <tr>
+                  <th scope="col">Issue ID</th>
+                  <th scope="col">Computer</th>
+                  <th scope="col">Issue Description</th>
+                  <th scope="col">Priority</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Reported</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              
+              <tbody id="issueTableBody">
+                <tr>
+                  <td colspan="7">
+                    <p class="issues__empty">No issues to display</p>
+                  </td>
+                </tr>
+              </tbody>
+            </div>
 
-        <tr>
-          <th scope="row">ISS-021</th>
-          <td>PC-004</td>
-          <td>Computer running slowly</td>
-          <td>Low</td>
-          <td>In Progress</td>
-          <td>Oct 21</td>
-          <td>
-            <button type="button" aria-label="View issue ISS-021">View</button>
-          </td>
-        </tr>
+            <tbody>
+              <tr>
+                <th scope="row">ISS-024</th>
+                <td>PC-012</td>
+                <td>Monitor has no display</td>
+                <td>High</td>
+                <td>Open</td>
+                <td>Oct 22</td>
+                <td>
+                  <button type="button" aria-label="View issue ISS-024">View</button>
+                </td>
+              </tr>
 
-        <tr>
-          <th scope="row">ISS-020</th>
-          <td>PC-015</td>
-          <td>System will not start</td>
-          <td>High</td>
-          <td>Open</td>
-          <td>Oct 20</td>
-          <td>
-            <button type="button" aria-label="View issue ISS-020">View</button>
-          </td>
-        </tr>
+              <tr>
+                <th scope="row">ISS-023</th>
+                <td>PC-008</td>
+                <td>No internet connection</td>
+                <td>Medium</td>
+                <td>In Progress</td>
+                <td>Oct 22</td>
+                <td>
+                  <button type="button" aria-label="View issue ISS-023">View</button>
+                </td>
+              </tr>
 
-        <tr>
-          <th scope="row">ISS-019</th>
-          <td>PC-006</td>
-          <td>Missing app shortcut</td>
-          <td>Low</td>
-          <td>Resolved</td>
-          <td>Oct 20</td>
-          <td>
-            <button type="button" aria-label="View issue ISS-019">View</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+              <tr>
+                <th scope="row">ISS-022</th>
+                <td>PC-019</td>
+                <td>Keyboard not responding</td>
+                <td>Medium</td>
+                <td>Open</td>
+                <td>Oct 21</td>
+                <td>
+                  <button type="button" aria-label="View issue ISS-022">View</button>
+                </td>
+              </tr>
 
-    <p>Showing 1–6 of 24 issues</p>
+              <tr>
+                <th scope="row">ISS-021</th>
+                <td>PC-004</td>
+                <td>Computer running slowly</td>
+                <td>Low</td>
+                <td>In Progress</td>
+                <td>Oct 21</td>
+                <td>
+                  <button type="button" aria-label="View issue ISS-021">View</button>
+                </td>
+              </tr>
 
-    <nav aria-label="Issues pagination">
-      <button type="button" disabled>Prev</button>
-      <button type="button" aria-current="page">1</button>
-      <button type="button">2</button>
-      <button type="button">3</button>
-      <button type="button">4</button>
-      <button type="button">Next</button>
-    </nav>
-  </section>
-</main>
+              <tr>
+                <th scope="row">ISS-020</th>
+                <td>PC-015</td>
+                <td>System will not start</td>
+                <td>High</td>
+                <td>Open</td>
+                <td>Oct 20</td>
+                <td>
+                  <button type="button" aria-label="View issue ISS-020">View</button>
+                </td>
+              </tr>
+
+              <tr>
+                <th scope="row">ISS-019</th>
+                <td>PC-006</td>
+                <td>Missing app shortcut</td>
+                <td>Low</td>
+                <td>Resolved</td>
+                <td>Oct 20</td>
+                <td>
+                  <button type="button" aria-label="View issue ISS-019">View</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>Showing 1-6 of 24 issues</p>
+
+          <nav aria-label="Issues pagination">
+            <button type="button" disabled>Prev</button>
+            <button type="button" aria-current="page">1</button>
+            <button type="button">2</button>
+            <button type="button">3</button>
+            <button type="button">4</button>
+            <button type="button">Next</button>
+          </nav>
+        </section>
+      </main>
     </div>
   </body>
 </html>
