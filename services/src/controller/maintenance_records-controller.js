@@ -5,24 +5,16 @@ const maintenanceRecordsService = require("../services/maintenance-records-servi
 // CREATE
 const createMaintenanceRecord = async (req, res) => {
   try {
-    const {
+    const { computer_id, performed_by, maintenance_type, description, status, remarks } = req.body;
+
+    const result = await maintenanceRecordsService.createMaintenanceRecord(
       computer_id,
       performed_by,
       maintenance_type,
       description,
       status,
       remarks,
-    } = req.body;
-
-    const result =
-      await maintenanceRecordsService.createMaintenanceRecord(
-        computer_id,
-        performed_by,
-        maintenance_type,
-        description,
-        status,
-        remarks
-      );
+    );
 
     return res.status(StatusCodes.CREATED).json({
       success: true,
@@ -42,8 +34,7 @@ const createMaintenanceRecord = async (req, res) => {
 // READ - Get all maintenance records
 const findAllMaintenanceRecords = async (req, res) => {
   try {
-    const result =
-      await maintenanceRecordsService.findAllMaintenanceRecords();
+    const result = await maintenanceRecordsService.findAllMaintenanceRecords();
 
     return res.status(StatusCodes.OK).json({
       success: true,
@@ -65,8 +56,7 @@ const findMaintenanceRecordById = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const result =
-      await maintenanceRecordsService.findMaintenanceRecordById(id);
+    const result = await maintenanceRecordsService.findMaintenanceRecordById(id);
 
     if (!result) {
       return res.status(StatusCodes.NOT_FOUND).json({
@@ -95,10 +85,7 @@ const findMaintenanceRecordsByComputerId = async (req, res) => {
   try {
     const { computer_id } = req.params;
 
-    const result =
-      await maintenanceRecordsService.findMaintenanceRecordsByComputerId(
-        computer_id
-      );
+    const result = await maintenanceRecordsService.findMaintenanceRecordsByComputerId(computer_id);
 
     return res.status(StatusCodes.OK).json({
       success: true,
@@ -106,10 +93,7 @@ const findMaintenanceRecordsByComputerId = async (req, res) => {
       data: result,
     });
   } catch (error) {
-    console.error(
-      "Find maintenance records by computer ID error:",
-      error
-    );
+    console.error("Find maintenance records by computer ID error:", error);
 
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
       success: false,
@@ -123,25 +107,17 @@ const updateMaintenanceRecord = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const {
+    const { computer_id, performed_by, maintenance_type, description, status, remarks } = req.body;
+
+    const result = await maintenanceRecordsService.updateMaintenanceRecord(
+      id,
       computer_id,
       performed_by,
       maintenance_type,
       description,
       status,
       remarks,
-    } = req.body;
-
-    const result =
-      await maintenanceRecordsService.updateMaintenanceRecord(
-        id,
-        computer_id,
-        performed_by,
-        maintenance_type,
-        description,
-        status,
-        remarks
-      );
+    );
 
     if (result.affectedRows === 0) {
       return res.status(StatusCodes.NOT_FOUND).json({
@@ -170,8 +146,7 @@ const deleteMaintenanceRecord = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const result =
-      await maintenanceRecordsService.deleteMaintenanceRecord(id);
+    const result = await maintenanceRecordsService.deleteMaintenanceRecord(id);
 
     if (result.affectedRows === 0) {
       return res.status(StatusCodes.NOT_FOUND).json({

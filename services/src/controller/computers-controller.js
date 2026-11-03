@@ -7,10 +7,7 @@ const createComputer = async (req, res) => {
   try {
     const { pc_number, status } = req.body;
 
-    const result = await computersService.createComputer(
-      pc_number,
-      status
-    );
+    const result = await computersService.createComputer(pc_number, status);
 
     return res.status(StatusCodes.CREATED).json({
       success: true,
@@ -81,8 +78,7 @@ const findComputerByPcNumber = async (req, res) => {
   try {
     const { pc_number } = req.params;
 
-    const result =
-      await computersService.findComputerByPcNumber(pc_number);
+    const result = await computersService.findComputerByPcNumber(pc_number);
 
     if (!result) {
       return res.status(StatusCodes.NOT_FOUND).json({
@@ -111,8 +107,7 @@ const findComputersByStatus = async (req, res) => {
   try {
     const { status } = req.params;
 
-    const result =
-      await computersService.findComputersByStatus(status);
+    const result = await computersService.findComputersByStatus(status);
 
     return res.status(StatusCodes.OK).json({
       success: true,
@@ -135,11 +130,7 @@ const updateComputer = async (req, res) => {
     const { id } = req.params;
     const { pc_number, status } = req.body;
 
-    const result = await computersService.updateComputer(
-      id,
-      pc_number,
-      status
-    );
+    const result = await computersService.updateComputer(id, pc_number, status);
 
     if (result.affectedRows === 0) {
       return res.status(StatusCodes.NOT_FOUND).json({

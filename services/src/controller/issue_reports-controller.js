@@ -5,14 +5,7 @@ const issueReportsService = require("../services/issue-reports-service.js");
 // CREATE
 const createIssueReport = async (req, res) => {
   try {
-    const {
-      computer_id,
-      reported_by,
-      issue_description,
-      priority,
-      status,
-      resolved_date,
-    } = req.body;
+    const { computer_id, reported_by, issue_description, priority, status, resolved_date } = req.body;
 
     const result = await issueReportsService.createIssueReport(
       computer_id,
@@ -20,7 +13,7 @@ const createIssueReport = async (req, res) => {
       issue_description,
       priority,
       status,
-      resolved_date
+      resolved_date,
     );
 
     return res.status(StatusCodes.CREATED).json({
@@ -92,8 +85,7 @@ const findIssueReportsByComputerId = async (req, res) => {
   try {
     const { computer_id } = req.params;
 
-    const result =
-      await issueReportsService.findIssueReportsByComputerId(computer_id);
+    const result = await issueReportsService.findIssueReportsByComputerId(computer_id);
 
     return res.status(StatusCodes.OK).json({
       success: true,
@@ -115,14 +107,7 @@ const updateIssueReport = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const {
-      computer_id,
-      reported_by,
-      issue_description,
-      priority,
-      status,
-      resolved_date,
-    } = req.body;
+    const { computer_id, reported_by, issue_description, priority, status, resolved_date } = req.body;
 
     const result = await issueReportsService.updateIssueReport(
       id,
@@ -131,7 +116,7 @@ const updateIssueReport = async (req, res) => {
       issue_description,
       priority,
       status,
-      resolved_date
+      resolved_date,
     );
 
     if (result.affectedRows === 0) {

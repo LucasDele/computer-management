@@ -5,15 +5,7 @@ const computerSpecsService = require("../services/computer-specs-service.js");
 // CREATE
 const createComputerSpec = async (req, res) => {
   try {
-    const {
-      computer_id,
-      processor,
-      ram,
-      storage,
-      operating_system,
-      gpu,
-      motherboard,
-    } = req.body;
+    const { computer_id, processor, ram, storage, operating_system, gpu, motherboard } = req.body;
 
     const result = await computerSpecsService.createComputerSpec(
       computer_id,
@@ -22,7 +14,7 @@ const createComputerSpec = async (req, res) => {
       storage,
       operating_system,
       gpu,
-      motherboard
+      motherboard,
     );
 
     return res.status(StatusCodes.CREATED).json({
@@ -94,8 +86,7 @@ const findComputerSpecByComputerId = async (req, res) => {
   try {
     const { computer_id } = req.params;
 
-    const result =
-      await computerSpecsService.findComputerSpecByComputerId(computer_id);
+    const result = await computerSpecsService.findComputerSpecByComputerId(computer_id);
 
     if (!result) {
       return res.status(StatusCodes.NOT_FOUND).json({
@@ -124,15 +115,7 @@ const updateComputerSpec = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const {
-      computer_id,
-      processor,
-      ram,
-      storage,
-      operating_system,
-      gpu,
-      motherboard,
-    } = req.body;
+    const { computer_id, processor, ram, storage, operating_system, gpu, motherboard } = req.body;
 
     const result = await computerSpecsService.updateComputerSpec(
       id,
@@ -142,7 +125,7 @@ const updateComputerSpec = async (req, res) => {
       storage,
       operating_system,
       gpu,
-      motherboard
+      motherboard,
     );
 
     if (result.affectedRows === 0) {

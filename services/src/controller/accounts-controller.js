@@ -48,7 +48,7 @@ const findAccountById = async (req, res) => {
     if (!result) {
       return res.status(StatusCodes.NOT_FOUND).json({
         success: false,
-        message: "Account not found.",
+        message: "Account not found." || ReasonPhrases.NOT_FOUND,
       });
     }
 
