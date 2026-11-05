@@ -6,9 +6,13 @@
     <title>Computer | Home</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/pages/landing.css" />
+    <link rel="stylesheet" href="./assets/css/pages/landing-glass.css" />
+    <link rel="stylesheet" href="./assets/css/pages/watery-glass.css" />
   </head>
-  <body class="h-screen">
-    <header class="px-24 header__h-10 d-flex flex-row justify-between items-center bg-secondary">
+  <body class="h-screen liquid-landing">
+    <div class="glass-orb glass-orb--blue" aria-hidden="true"></div>
+    <div class="glass-orb glass-orb--gold" aria-hidden="true"></div>
+    <header class="px-24 header__h-10 d-flex flex-row justify-between items-center bg-secondary glass-surface glass-enter">
       <div class="d-flex flex-row items-center gap-3 text-white">
         <img class="w-64 h-64" src="./assets/images/logo/britech-logo.png" alt="Britech logo" />
         <div>
@@ -17,16 +21,17 @@
         </div>
       </div>
       <nav class="d-flex flex-row">
-        <a class="btn-tertiary" href="./index.html">Home</a>
+        <a class="btn-tertiary" href="./index.html" aria-current="page">Home</a>
         <a class="btn-tertiary" href="./pages/about.html">About</a>
         <a class="btn-tertiary" href="./pages/features.html">Features</a>
         <a class="btn-tertiary" href="./pages/how-it-works.html">How It Works</a>
       </nav>
-      <a href="./auth/sign-in.html" class="btn-primary">LOGIN</a>
+      <a href="./auth/sign-in.html" class="btn-primary glass-button">LOGIN</a>
     </header>
 
     <main class="main-container__h-90 d-flex flex-column justify-center items-center text-white hero">
-      <section class="w-1/2 d-flex flex-column justify-center gap-3 text-center">
+      <section class="w-1/2 d-flex flex-column justify-center gap-3 text-center glass-surface glass-enter">
+        <span class="glass-eyebrow">COMPUTER LABORATORY MANAGEMENT</span>
         <h1 class="text-56">Computer Laboratory Inventory & <br />Maintenance System</h1>
         <p class="text-md">
           A web-based system for organizing computer laboratory inventory, monitoring equipment conditions, and managing
@@ -35,10 +40,13 @@
 
         <!-- Hero Buttons -->
         <div class="d-flex flex-row justify-center gap-5">
-          <a href="./auth/sign-in.html" class="btn-primary btn-hero">LOGIN</a>
-          <a href="./pages/features.html" class="btn-secondary btn-hero">LEARN MORE</a>
+          <a href="./auth/sign-in.html" class="btn-primary btn-hero glass-button">LOGIN</a>
+          <a href="./pages/features.html" class="btn-secondary btn-hero glass-button">LEARN MORE</a>
         </div>
+        <span class="glass-footer-note">Inventory &nbsp;·&nbsp; Equipment &nbsp;·&nbsp; Maintenance</span>
       </section>
     </main>
+    <script src="./assets/js/pages/landing-glass.js" defer></script>
+    <script src="./assets/js/pages/watery-glass.js" defer></script>
   </body>
 </html>
