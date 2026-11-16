@@ -1,12 +1,14 @@
-const express = require('express');
-const cors = require('cors');
-const helmet = require('helmet');
-const morgan = require('morgan');
-const path = require('path');
+const express = require("express");
+const cors = require("cors");
+const helmet = require("helmet");
+const morgan = require("morgan");
+const path = require("path");
 const { StatusCodes, ReasonPhrases } = require("http-status-codes");
 
 const db = require("./config/database.js");
 const authRoutes = require("./routes/auth-routes.js");
+const accountsRoutes = require("./routes/accounts-routes.js");
+
 const app = express();
 
 // ============================================================
@@ -39,7 +41,7 @@ const app = express();
 // This gives us the project root.
 //
 
-const PROJECT_ROOT = path.join(__dirname, '../..');
+const PROJECT_ROOT = path.join(__dirname, "../..");
 
 // ============================================================
 // MIDDLEWARE
@@ -95,7 +97,7 @@ app.use(express.urlencoded({ extended: true }));
 // GET /api/health
 //
 
-app.use(morgan('dev'));
+app.use(morgan("dev"));
 
 // ============================================================
 // SERVE FRONTEND
@@ -141,10 +143,7 @@ app.use(express.static(PROJECT_ROOT));
 // http://localhost:3000/uploads/filename.jpg
 //
 
-app.use(
-    '/uploads',
-    express.static(path.join(__dirname, '../uploads'))
-);
+app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
 // ============================================================
 // API HEALTH CHECK
@@ -157,16 +156,12 @@ app.use(
 // http://localhost:3000/api/health
 //
 
-app.get('/api/health', (req, res) => {
-
-    res.status(200).json({
-
-        success: true,
-        service: 'backend',
-        status: 'online'
-
-    });
-
+app.get("/api/health", (req, res) => {
+  res.status(200).json({
+    success: true,
+    service: "backend",
+    status: "online",
+  });
 });
 
 app.get("/api/health/db", async (req, res) => {
@@ -189,6 +184,7 @@ app.get("/api/health/db", async (req, res) => {
   }
 });
 app.use("/api", authRoutes);
+app.use("/api/accounts", accountsRoutes);
 // ============================================================
 // HOME PAGE
 // ============================================================
@@ -200,12 +196,8 @@ app.use("/api", authRoutes);
 // Express sends the project's index.html.
 //
 
-app.get('/', (req, res) => {
-
-    res.sendFile(
-        path.join(PROJECT_ROOT, 'index.html')
-    );
-
+app.get("/", (req, res) => {
+  res.sendFile(path.join(PROJECT_ROOT, "index.html"));
 });
 
 // ============================================================

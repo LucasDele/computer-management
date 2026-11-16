@@ -15,10 +15,7 @@ const createAccount = async (username, password) => {
     throw new Error("Username and password are required.");
   }
 
-  const [result] = await db.query(CREATE_ACCOUNT, [
-    username,
-    password,
-  ]);
+  const [result] = await db.query(CREATE_ACCOUNT, [username, password]);
 
   return result;
 };
@@ -47,10 +44,7 @@ const findAccountByUsername = async (username) => {
     throw new Error("Username is required.");
   }
 
-  const [rows] = await db.query(
-    FIND_ACCOUNT_BY_USERNAME,
-    [username]
-  );
+  const [rows] = await db.query(FIND_ACCOUNT_BY_USERNAME, [username]);
 
   return rows[0] || null;
 };
@@ -65,11 +59,7 @@ const updateAccount = async (id, username, password) => {
     throw new Error("Username and password are required.");
   }
 
-  const [result] = await db.query(UPDATE_ACCOUNT, [
-    username,
-    password,
-    id,
-  ]);
+  const [result] = await db.query(UPDATE_ACCOUNT, [username, password, id]);
 
   return result;
 };
