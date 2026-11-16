@@ -225,6 +225,8 @@
   color: var(--color-white);
 }
 
+
+
 /* ----- Responsive --------------------------------------------- */
 @media (max-width: 900px) {
   .inventory__search,
