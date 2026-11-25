@@ -13,7 +13,9 @@
   <body class="liquid-landing glass-login">
     <div class="glass-orb glass-orb--blue" aria-hidden="true"></div>
     <div class="glass-orb glass-orb--gold" aria-hidden="true"></div>
-    <header class="px-24 header__h-10 d-flex flex-row justify-between items-center bg-secondary glass-surface glass-enter">
+    <header
+      class="px-24 header__h-10 d-flex flex-row justify-between items-center bg-secondary glass-surface glass-enter"
+    >
       <div class="d-flex flex-row items-center gap-3 text-white">
         <img class="w-64 h-64" src="../assets/images/logo/britech-logo.png" alt="Britech logo" />
         <div>
@@ -30,60 +32,62 @@
       <a href="./sign-in.html" aria-current="page" class="btn-primary glass-button">LOGIN</a>
     </header>
     <main class="glass-login-main">
-    <div class="bg-white rounded-lg shadow-lg p-12 glass-login-card glass-surface glass-enter">
-      <!-- Login Header with Logo -->
-      <div class="text-center mb-8">
-        <div class="d-flex flex-column items-center justify-center">
-          <img class="w-aut h-80" src="../assets/images/logo/britech-logo.png" alt="Britech Logo" />
-          <h1 class="text-3xl font-bold text-secondary">BRITECH COLLEGE</h1>
-        </div>
-        <p class="text-sm text-secondary" style="line-height: 1.8; letter-spacing: 0.3px">
-          Computer Laboratory Inventory & Maintenance Monitoring System
-        </p>
-      </div>
-
-      <!-- Login Form -->
-      <form id="loginForm">
-        <!-- Username/Email Field -->
-        <div class="mb-6">
-          <label for="username" class="d-block text-black font-semibold text-sm mb-2">Username / Email</label>
-          <input class="input input__login" type="text" name="username" id="username" />
+      <div class="bg-white rounded-lg shadow-lg p-12 glass-login-card glass-surface glass-enter">
+        <!-- Login Header with Logo -->
+        <div class="text-center mb-8">
+          <div class="d-flex flex-column items-center justify-center">
+            <img class="w-aut h-80" src="../assets/images/logo/britech-logo.png" alt="Britech Logo" />
+            <h1 class="text-3xl font-bold text-secondary">BRITECH COLLEGE</h1>
+          </div>
+          <p class="text-sm text-secondary" style="line-height: 1.8; letter-spacing: 0.3px">
+            Computer Laboratory Inventory & Maintenance Monitoring System
+          </p>
         </div>
 
-        <!-- Password Field -->
-        <div class="mb-6">
-          <label for="password" class="d-block text-black font-semibold text-sm mb-2">Password</label>
-          <input class="input input__login" type="password" name="password" id="password" />
-        </div>
+        <!-- Login Form -->
+        <form id="sign-in-form">
+          <!-- Username/Email Field -->
+          <div class="mb-6">
+            <label for="username" class="d-block text-black font-semibold text-sm mb-2">Username / Email</label>
+            <input class="input input__login" type="text" name="username" id="username" />
+          </div>
 
-        <!-- Remember Me & Forgot Password -->
-        <div class="d-flex justify-between items-center mb-8" style="gap: var(--space-4); flex-wrap: wrap">
-          <div class="d-flex items-center gap-2">
-            <input class="checkbox input__checkbox" type="checkbox" id="rememberMe" name="rememberMe" />
-            <label for="rememberMe" class="text-black text-sm font-medium" style="margin: 0; cursor: pointer"
-              >Remember Me</label
+          <!-- Password Field -->
+          <div class="mb-6">
+            <label for="password" class="d-block text-black font-semibold text-sm mb-2">Password</label>
+            <input class="input input__login" type="password" name="password" id="password" />
+          </div>
+
+          <!-- Remember Me & Forgot Password -->
+          <div class="d-flex justify-between items-center mb-8" style="gap: var(--space-4); flex-wrap: wrap">
+            <div class="d-flex items-center gap-2">
+              <input class="checkbox input__checkbox" type="checkbox" id="rememberMe" name="rememberMe" />
+              <label for="rememberMe" class="text-black text-sm font-medium" style="margin: 0; cursor: pointer"
+                >Remember Me</label
+              >
+            </div>
+            <a
+              href="#"
+              class="text-secondary text-sm font-semibold"
+              style="text-decoration: none; transition: all 0.3s ease"
+              >Forgot Password?</a
             >
           </div>
-          <a
-            href="#"
-            class="text-secondary text-sm font-semibold"
-            style="text-decoration: none; transition: all 0.3s ease"
-            >Forgot Password?</a
-          >
-        </div>
 
-        <!-- Login Button -->
-        <button
-          type="button"
-          class="w-100 bg-primary text-secondary p-3 rounded-sm font-bold text-base shadow-md glass-button btn-primary"
-          onclick="window.location.href = '../pages/dashboard.html'"
-        >
-          Login
-        </button>
-      </form>
-    </div>
+          <p id="error-message" role="alert"></p>
+
+          <!-- Login Button -->
+          <button
+            type="submit"
+            class="w-100 bg-primary text-secondary p-3 rounded-sm font-bold text-base shadow-md glass-button btn-primary" id="sign-in-button"
+          >
+            Login
+          </button>
+        </form>
+      </div>
     </main>
     <script src="../assets/js/pages/landing-glass.js" defer></script>
     <script src="../assets/js/pages/watery-glass.js" defer></script>
+    <script type="module" src="../assets/js/pages/sign-in.js"></script>
   </body>
 </html>
